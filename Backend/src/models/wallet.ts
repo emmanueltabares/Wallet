@@ -7,7 +7,7 @@ const walletSchema = new Schema<WalletI>({
     expenses: [{
         _id: Schema.Types.ObjectId,
         name: String,
-        price: Number
+        price: Number,
     }]
 })
 

@@ -1,9 +1,12 @@
-import { Router, Request, Response } from 'express';
+import { Router} from 'express';
+import walletController from '../controllers/wallet';
+import expressAsyncHandler from 'express-async-handler';
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    res.json({ msg: "Hello World!"})
-})
+router.get('/', expressAsyncHandler(walletController.getWallet))
+router.post('/', expressAsyncHandler(walletController.createWallet));
+router.put('/', walletController.updateWallet)
+router.delete('/', walletController.removeWallet)
 
 export default router;

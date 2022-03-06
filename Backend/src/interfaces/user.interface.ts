@@ -1,11 +1,25 @@
+import { Types } from 'mongoose';
+
 export interface newUserI {
-    name: String,
-    lastname: String,
-    email: String,
-    password: String
+    firstname: string,
+    lastname: string,
+    email: string,
+    password: string
 }
 
-export interface userI {
-    email: String,
-    password: String
+export interface UserI {
+    _id: Types.ObjectId,
+    firstname: string,
+    lastname: string,
+    email: string,
+    password: string
+}
+
+export interface UserQuery {
+    username?: string;
+    email?: string;
+}
+
+export interface User {
+    _id?: Types.ObjectId;
 }
