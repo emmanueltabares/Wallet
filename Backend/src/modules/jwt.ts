@@ -1,7 +1,8 @@
 import config from "../config/config";
 import { sign } from 'jsonwebtoken';
+import Types from 'mongoose';
 
-export const generateJWT = async (id: string) => {
+export const generateJWT = async (id: Types.ObjectId) => {
     return new Promise((resolve, reject) => {
         const payload = id.toString();
 

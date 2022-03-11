@@ -1,10 +1,11 @@
 import { Router} from 'express';
 import walletController from '../controllers/wallet';
 import expressAsyncHandler from 'express-async-handler';
+import { isValidToken } from '../middlewares/token';
 
 const router = Router();
 
-router.get('/', expressAsyncHandler(walletController.getWallet))
+router.get('/', isValidToken, expressAsyncHandler(walletController.getWallet))
 router.post('/', expressAsyncHandler(walletController.createWallet));
 router.put('/', walletController.updateWallet)
 router.delete('/', walletController.removeWallet)
