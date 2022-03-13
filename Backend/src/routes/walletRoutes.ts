@@ -6,7 +6,6 @@ import { isValidToken } from '../middlewares/token';
 const router = Router();
 
 router.get('/', isValidToken, expressAsyncHandler(walletController.getWallet))
-router.post('/', expressAsyncHandler(walletController.createWallet));
 router.put('/', walletController.updateWallet)
 router.delete('/', walletController.removeWallet)
 
